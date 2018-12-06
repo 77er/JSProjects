@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 100px;
+            background-color: palegreen;
+            /*作用类似于浮动*/
+            display: flex;
+            justify-content: space-between;
+        }
+        .box .left{
+            display: flex;
+            align-items: center;
+        }
+        .box .left .title{
+            font-size: 20px;
+            background-color: red;
+        }
+        .box .left .con{
+            background-color: yellowgreen;
+        }
+        .box .right{
+            height: 100%;
+            width: 300px;
+            background-color: peru;
+        }
+        ul{
+            list-style: none;
+            height: 30px;
+            width: 630px;
+        }
+        ul li{
+            width: 200px;
+            background-color: pink;
+            margin-right: 10px;
+            float: left;
+        }
+        ul li.choose{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="left">
+        <div class="title">标题</div>
+        <div class="con">文字文字文字文字文字文字文字</div>
+    </div>
+    <div class="right">
+
+    </div>
+</div>
+<ul>
+    <li class="choose">1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+   /* var arr=new Array(3);
+    for(var i=0;i<3;i++){
+        arr[i]=i;
+    }
+    console.log(arr);*/
+    var lis=document.getElementsByTagName("li");
+    var lastIndex=0;
+    for (var i=0;i<lis.length;i++){
+        (function (index) {
+            lis[index].onmouseover=function () {
+                lis[lastIndex].className="";
+                this.className="choose";
+                lastIndex=index;
+            }
+        })(i)
+    }
+
+    var str1="abc";
+    var str2=str1+" 123";
+   console.log(str2);
+</script>
+</body>
+</html>
